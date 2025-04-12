@@ -3,161 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор Случайных Цитат (Все в одном файле)</title>
-
+    <title>Wanderlust Journal</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Высота на весь экран */
-            background-color: #f0f2f5; /* Приятный фон */
-            margin: 0;
-            padding: 20px; /* Отступы по краям */
-            box-sizing: border-box; /* Чтобы padding не увеличивал размер body */
-        }
+        /* Сброс стилей */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-        .quote-container {
-            background-color: #ffffff; /* Белый фон контейнера */
-            padding: 30px 40px; /* Внутренние отступы */
-            border-radius: 10px; /* Скругленные углы */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Тень */
-            text-align: center; /* Текст по центру */
-            max-width: 600px; /* Максимальная ширина */
-            width: 100%; /* Занимать доступную ширину до max-width */
-        }
+        /* Header */
+        header { background: #f4f4f4; padding: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-toggle { display: none; cursor: pointer; }
 
-        h1 {
-            color: #333;
-            margin-bottom: 25px; /* Отступ снизу заголовка */
-            font-size: 1.8em; /* Размер заголовка */
-        }
+        /* Hero Section */
+        .hero { background: url('https://source.unsplash.com/1600x900/?travel') center/cover no-repeat; height: 70vh; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 3rem; }
 
-        blockquote {
-            font-size: 1.3em; /* Размер текста цитаты */
-            margin: 25px 0; /* Отступы сверху и снизу */
-            font-style: italic; /* Курсив */
-            color: #555; /* Цвет текста цитаты */
-            border-left: 5px solid #007bff; /* Синяя линия слева */
-            padding-left: 20px; /* Отступ слева от линии */
-            text-align: left; /* Выравнивание текста цитаты по левому краю */
-            min-height: 50px; /* Минимальная высота, чтобы блок не схлопывался */
-        }
+        /* Sections */
+        section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
 
-        #quote-author {
-            font-size: 1.1em; /* Размер текста автора */
-            color: #777; /* Цвет текста автора */
-            margin-top: 15px; /* Отступ сверху */
-            text-align: right; /* Выравнивание по правому краю */
-            font-weight: bold; /* Жирный шрифт */
-            min-height: 1.1em; /* Минимальная высота */
-        }
+        /* Destinations */
+        .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; transition: transform 0.3s; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card:hover { transform: scale(1.05); }
 
-        /* Добавляем тире перед автором, если он есть */
-        #quote-author:not(:empty)::before {
-            content: "— ";
-        }
+        /* Contact Form */
+        .contact-form { max-width: 600px; margin: auto; }
+        .contact-form label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }
+        .contact-form button { padding: 10px 20px; border: none; background: #333; color: white; border-radius: 4px; cursor: pointer; }
 
+        /* Footer */
+        footer { background: #333; color: white; text-align: center; padding: 20px 0; }
 
-        button {
-            background-color: #007bff; /* Синий фон кнопки */
-            color: white; /* Белый текст кнопки */
-            border: none; /* Убрать границу */
-            padding: 12px 25px; /* Внутренние отступы кнопки */
-            font-size: 1em; /* Размер текста кнопки */
-            border-radius: 5px; /* Скругленные углы кнопки */
-            cursor: pointer; /* Указатель при наведении */
-            transition: background-color 0.3s ease, transform 0.1s ease; /* Плавный переход цвета и небольшой эффект нажатия */
-            margin-top: 25px; /* Отступ сверху */
-        }
-
-        button:hover {
-            background-color: #0056b3; /* Более темный синий при наведении */
-        }
-
-        button:active {
-            transform: scale(0.98); /* Небольшое уменьшение при нажатии */
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; background: #f4f4f4; position: absolute; top: 60px; right: 0; width: 200px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .nav-toggle { display: block; }
         }
     </style>
 </head>
 <body>
-    <div class="quote-container">
-        <h1>Случайная Цитата</h1>
-        <blockquote id="quote-text">
-            Нажмите кнопку ниже, чтобы получить цитату.
-        </blockquote>
-        <p id="quote-author">
-            </p>
-        <button id="new-quote-btn">Новая цитата</button>
-    </div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Wanderlust</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#destinations">Направления</a></li>
+                    <li><a href="#blog">Блог</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <div class="nav-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Добро пожаловать в Wanderlust Journal</h1>
+    </section>
+
+    <section id="destinations" class="container">
+        <h2 class="section-title">Популярные направления</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x300/?paris" alt="Париж">
+                <div class="card-content">
+                    <h3>Париж, Франция</h3>
+                    <p>Город любви и света. Исследуйте Эйфелеву башню и уютные улочки Монмартра.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/400x300/?bali" alt="Бали">
+                <div class="card-content">
+                    <h3>Бали, Индонезия</h3>
+                    <p>Тропический рай с рисовыми террасами и бирюзовыми пляжами.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/400x300/?newyork" alt="Нью-Йорк">
+                <div class="card-content">
+                    <h3>Нью-Йорк, США</h3>
+                    <p>Город, который никогда не спит. Ощутите энергию Таймс-сквер.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="container">
+        <h2 class="section-title">Последние записи</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x300/?mountains" alt="Горы">
+                <div class="card-content">
+                    <h3>Поход в Альпы</h3>
+                    <p>Мой опыт восхождения на Монблан и советы для начинающих альпинистов.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/400x300/?food" alt="Еда">
+                <div class="card-content">
+                    <h3>Уличная еда в Азии</h3>
+                    <p>Где найти лучшие пад тай и бан ми в Юго-Восточной Азии.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/400x300/?beach" alt="Пляж">
+                <div class="card-content">
+                    <h3>Секретные пляжи Европы</h3>
+                    <p>Малоизвестные уголки для тех, кто хочет уединиться у моря.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Свяжитесь со мной</h2>
+        <form class="contact-form">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" placeholder="Ваше имя">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Ваш email">
+
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение"></textarea>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Wanderlust Journal. Все права защищены.</p>
+    </footer>
 
     <script>
-        // Находим элементы на странице по их ID
-        const quoteTextElement = document.getElementById('quote-text');
-        const quoteAuthorElement = document.getElementById('quote-author');
-        const newQuoteBtn = document.getElementById('new-quote-btn');
-
-        // Массив с объектами цитат (можно легко добавлять новые)
-        const quotes = [
-            {
-                text: "Самый лучший способ предсказать будущее — это создать его.",
-                author: "Питер Друкер"
-            },
-            {
-                text: "Логика может привести Вас от пункта А к пункту Б, а воображение — куда угодно.",
-                author: "Альберт Эйнштейн"
-            },
-            {
-                text: "Единственный способ делать великие дела – любить то, что вы делаете.",
-                author: "Стив Джобс"
-            },
-            {
-                text: "Успех — это способность шагать от одной неудачи к другой, не теряя энтузиазма.",
-                author: "Уинстон Черчилль"
-            },
-            {
-                 text: "Через двадцать лет вы будете больше сожалеть о том, чего не сделали, чем о том, что вы сделали.",
-                 author: "Марк Твен"
-            },
-            {
-                 text: "Ваше время ограничено, не тратьте его, живя чужой жизнью.",
-                 author: "Стив Джобс"
-            },
-            {
-                 text: "Стремитесь не к успеху, а к ценностям, которые он дает​.",
-                 author: "Альберт Эйнштейн"
-            }
-            // Добавьте сюда больше цитат в таком же формате: { text: "...", author: "..." }
-        ];
-
-        // Функция для получения случайной цитаты из массива
-        function getRandomQuote() {
-            // Генерируем случайный индекс от 0 до (длина массива - 1)
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            // Возвращаем объект цитаты по этому индексу
-            return quotes[randomIndex];
-        }
-
-        // Функция для отображения цитаты на странице
-        function displayQuote() {
-            // Получаем случайную цитату
-            const quote = getRandomQuote();
-            // Устанавливаем текст цитаты в соответствующий HTML-элемент
-            quoteTextElement.textContent = quote.text;
-            // Устанавливаем автора цитаты в соответствующий HTML-элемент
-            quoteAuthorElement.textContent = quote.author;
-        }
-
-        // Добавляем обработчик события: при клике на кнопку (элемент с ID 'new-quote-btn')
-        // будет вызываться функция displayQuote
-        newQuoteBtn.addEventListener('click', displayQuote);
-
-        // Опционально: можно вызвать displayQuote() один раз при загрузке,
-        // чтобы сразу показать случайную цитату, а не стартовое сообщение.
-        // Для этого раскомментируйте строку ниже:
-        // displayQuote();
-
+        // Скрипт для мобильного меню
+        const toggle = document.querySelector('.nav-toggle');
+        const links = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
