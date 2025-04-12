@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Скрипты для Roblox - Поддержка и информация</title>
     <style>
-        /* --- ОСНОВНЫЕ СТИЛИ --- */
         body {
             font-family: sans-serif;
             line-height: 1.6;
@@ -15,8 +14,8 @@
             color: #333;
         }
         .container {
-            width: 85%; /* Немного шире для контента */
-            max-width: 900px; /* Максимальная ширина */
+            width: 85%;
+            max-width: 900px;
             margin: auto;
             overflow: hidden;
             padding: 20px;
@@ -40,12 +39,12 @@
         section {
             margin: 20px 0;
             padding: 20px;
-            background: #f9f9f9; /* Слегка другой фон для секций */
-            border: 1px solid #ddd; /* Добавим рамку */
+            background: #f9f9f9;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
         .script-section {
-             margin-bottom: 30px; /* Добавим отступ между описаниями скриптов */
+             margin-bottom: 30px;
         }
         h2 {
             color: #0779e4;
@@ -63,81 +62,68 @@
         a:hover {
             text-decoration: underline;
         }
-        .button, button[type="submit"] { /* Стили для кнопок и кнопки формы */
+        .button, button[type="submit"] {
             display: inline-block;
             background: #0779e4;
-            color: #fff !important; /* Важно для переопределения */
+            color: #fff !important;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
             font-size: 1em;
-            margin-top: 10px; /* Отступ сверху для кнопок */
-            margin-right: 10px; /* Отступ справа между кнопками */
-            transition: background-color 0.3s ease; /* Плавный переход */
+            margin-top: 10px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
         }
         .button:hover, button[type="submit"]:hover {
             background: #0568b1;
-            text-decoration: none; /* Убираем подчеркивание для кнопок */
+            text-decoration: none;
         }
         ul {
-            list-style: none; /* Убираем маркеры списка */
-            padding-left: 10px; /* Небольшой отступ для списков */
+            list-style: none;
+            padding-left: 10px;
         }
         ul li {
-            padding-bottom: 8px; /* Обычный отступ для пунктов списка */
-            /* Убедимся, что текст переносится нормально */
+            padding-bottom: 8px;
             white-space: normal;
-            overflow-wrap: break-word; /* Перенос длинных слов */
-            word-wrap: break-word; /* Для старых браузеров */
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         .disclaimer {
-            background-color: #fff0f0; /* Светло-красный фон */
-            border: 1px solid #d9534f; /* Красная рамка */
-            color: #a94442; /* Темно-красный текст */
+            background-color: #fff0f0;
+            border: 1px solid #d9534f;
+            color: #a94442;
             padding: 15px;
             margin-top: 15px;
             border-radius: 4px;
         }
         .important-note {
-            background-color: #fcf8e3; /* Светло-желтый фон */
-            border: 1px solid #faebcc; /* Желтая рамка */
-            color: #8a6d3b; /* Коричневый текст */
+            background-color: #fcf8e3;
+            border: 1px solid #faebcc;
+            color: #8a6d3b;
             padding: 15px;
             margin-top: 15px;
             border-radius: 4px;
         }
-        .purchase-block { /* Блок для каждой кнопки покупки */
+        .purchase-block {
             margin-bottom: 15px;
         }
-
-        /* --- Стили для раскрывающихся блоков <details> --- */
         details {
-            margin-top: 10px; /* Небольшой отступ сверху для раскрывашки */
+            margin-top: 10px;
         }
         details > summary {
-            cursor: pointer; /* Показываем, что элемент кликабельный */
-            font-weight: bold; /* Делаем заголовок жирным */
-            /* Убедимся, что нет переноса или обрезки для summary */
+            cursor: pointer;
+            font-weight: bold;
             white-space: normal;
             overflow: visible;
             text-overflow: clip;
-            list-style: none; /* Можно убрать стандартный маркер (треугольник), если мешает */
+            list-style: none;
         }
-         /* Если убирали стандартный маркер, можно добавить свой */
-         /* details > summary::before { content: '▶ '; ... } */
-         /* details[open] > summary::before { transform: rotate(90deg); } */
-
-        details > summary::-webkit-details-marker { /* Можно убрать стандартный маркер в Chrome/Safari */
-             /* display: none; */
-        }
-        details > p { /* Отступ для текста внутри details */
+        details > p {
              margin-top: 10px;
-             margin-left: 15px; /* Небольшой отступ слева для вложенности */
+             margin-left: 15px;
         }
-
-        /* --- Стили для формы поддержки --- */
         #support-form label {
             display: block;
             margin-bottom: 5px;
@@ -151,25 +137,23 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Учитывает padding и border в ширине */
+            box-sizing: border-box;
         }
         #support-form textarea {
             height: 120px;
-            resize: vertical; /* Позволяет изменять высоту */
+            resize: vertical;
         }
         #support-form button[type="submit"] {
-            width: auto; /* Кнопка не на всю ширину */
+            width: auto;
         }
-        .form-status { /* Стиль для сообщений статуса формы */
+        .form-status {
              margin-top: 15px;
              padding: 10px;
              border-radius: 4px;
-             display: none; /* Скрыто по умолчанию */
+             display: none;
         }
         .form-status.success { background-color: #dff0d8; border: 1px solid #d6e9c6; color: #3c763d; }
         .form-status.error { background-color: #f2dede; border: 1px solid #ebccd1; color: #a94442; }
-
-        /* --- Прочие стили --- */
         footer {
             text-align: center;
             margin-top: 30px;
@@ -177,9 +161,6 @@
             color: #777;
             font-size: 0.9em;
         }
-
-        /* Блок CSS для обрезки текста с троеточием удален */
-
     </style>
 </head>
 <body>
@@ -287,73 +268,65 @@
 
         <section id="links">
             <h2>Полезные ссылки</h2>
-            <p>Здесь вы можете разместить дополнительные ссылки (на видео-инструкции, сообщество, новости и т.д.):</p>
+            <p>Здесь вы можете найти наш Discord сервер и другую информацию:</p>
             <ul>
-                <li><a href="#">[Название ссылки 1]</a> (заменить)</li>
-                <li><a href="#">[Название ссылки 2]</a> (заменить)</li>
-                </ul>
+                <li><a href="https://discord.gg/R7YbX48GcE" target="_blank">Наш Discord сервер</a></li>
+                <li><a href="https://abobus307.github.io/Site/" target="_blank">Мое Bio</a></li>
+             </ul>
         </section>
     </div>
 
     <footer>
-         <p>&copy; 2025 [Ваше имя или название проекта]. Скрипты для Roblox. Все права защищены.</p> </footer>
+         <p>&copy; 2025 Abobus307. Скрипты для Roblox. Все права защищены.</p>
+         </footer>
 
     <script>
         const form = document.getElementById('support-form');
         const statusDiv = document.getElementById('form-status');
         const emailInput = document.getElementById('email');
-        // ПРЕДУПРЕЖДЕНИЕ: Хранение URL вебхука прямо в коде небезопасно.
-        const webhookUrl = 'https://discord.com/api/webhooks/1336748138291007649/ecAVxkffAqxuHkza0cILj7i9wAqAZTX9FDtoyHl1UtO_uWQIDW6iHzMpmCLXHedJSIqt'; // ВАШ URL ВЕБХУКА
-
-        // Усиленное регулярное выражение: требует минимум 2 символа после последней точки.
+        const webhookUrl = 'https://discord.com/api/webhooks/1336748138291007649/ecAVxkffAqxuHkza0cILj7i9wAqAZTX9FDtoyHl1UtO_uWQIDW6iHzMpmCLXHedJSIqt';
         const stricterEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
         form.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Предотвращаем стандартную отправку формы
-            statusDiv.style.display = 'none'; // Скрываем предыдущий статус
+            event.preventDefault();
+            statusDiv.style.display = 'none';
 
-            // Получаем данные из формы
-            const email = emailInput.value; // Используем переменную emailInput
-            const discordNick = document.getElementById('discord').value || 'Не указан'; // Если поле пустое
-            const telegramNick = document.getElementById('telegram').value || 'Не указан'; // Если поле пустое
+            const email = emailInput.value;
+            const discordNick = document.getElementById('discord').value || 'Не указан';
+            const telegramNick = document.getElementById('telegram').value || 'Не указан';
             const message = document.getElementById('message').value;
 
-            // --- Используем усиленную проверку Email ---
             if (!stricterEmailRegex.test(email)) {
                 statusDiv.textContent = 'Пожалуйста, введите корректный Email адрес (проверьте формат, например, user@example.com).';
                 statusDiv.className = 'form-status error';
                 statusDiv.style.display = 'block';
-                emailInput.focus(); // Ставим фокус на поле email для удобства пользователя
-                return; // Прерываем выполнение функции, форма не будет отправлена
+                emailInput.focus();
+                return;
             }
-            // --- Конец проверки ---
 
             const submitButton = form.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.textContent = 'Отправка...';
 
-            // Формируем полезную нагрузку для Discord вебхука (используем Embed)
             const payload = {
-                username: "Обращение с Сайта", // Имя бота в Discord
-                // avatar_url: "URL_вашего_аватара_если_есть", // URL аватара бота
+                username: "Обращение с Сайта",
                 embeds: [{
                     title: "Новое обращение в поддержку",
-                    color: 3447003, // Синий цвет (десятичное представление)
+                    color: 3447003,
                     fields: [
-                        { name: "Email для ответа", value: email, inline: false }, // Email всегда не inline для акцента
+                        { name: "Email для ответа", value: email, inline: false },
                         { name: "Discord", value: discordNick, inline: true },
                         { name: "Telegram", value: telegramNick, inline: true },
-                        { name: "Сообщение", value: message, inline: false } // Сообщение на всю ширину
+                        { name: "Сообщение", value: message, inline: false }
                     ],
                     footer: {
                         text: "ВАЖНО: Отвечать нужно вручную на указанный Email!"
                     },
-                    timestamp: new Date().toISOString() // Текущее время
+                    timestamp: new Date().toISOString()
                 }]
             };
 
             try {
-                // Отправляем данные на вебхук
                 const response = await fetch(webhookUrl, {
                     method: 'POST',
                     headers: {
@@ -363,26 +336,22 @@
                 });
 
                 if (response.ok) {
-                    // Успешно отправлено
                     statusDiv.textContent = 'Ваше сообщение успешно отправлено! Мы скоро с вами свяжемся.';
                     statusDiv.className = 'form-status success';
                     statusDiv.style.display = 'block';
-                    form.reset(); // Очищаем форму
+                    form.reset();
                 } else {
-                    // Ошибка при отправке
                     console.error('Discord Webhook Error:', response.status, await response.text());
                     statusDiv.textContent = `Ошибка отправки (${response.status}). Пожалуйста, попробуйте позже или свяжитесь через другие каналы.`;
                     statusDiv.className = 'form-status error';
                     statusDiv.style.display = 'block';
                 }
             } catch (error) {
-                // Ошибка сети или другая ошибка JS
                 console.error('Form Submission Error:', error);
                 statusDiv.textContent = 'Произошла ошибка при отправке формы. Проверьте подключение к интернету.';
                 statusDiv.className = 'form-status error';
                 statusDiv.style.display = 'block';
             } finally {
-                 // Разблокируем кнопку в любом случае
                  submitButton.disabled = false;
                  submitButton.textContent = 'Отправить сообщение';
             }
