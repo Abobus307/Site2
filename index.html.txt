@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор Случайных Цитат (Все в одном файле)</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Высота на весь экран */
+            background-color: #f0f2f5; /* Приятный фон */
+            margin: 0;
+            padding: 20px; /* Отступы по краям */
+            box-sizing: border-box; /* Чтобы padding не увеличивал размер body */
+        }
+
+        .quote-container {
+            background-color: #ffffff; /* Белый фон контейнера */
+            padding: 30px 40px; /* Внутренние отступы */
+            border-radius: 10px; /* Скругленные углы */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Тень */
+            text-align: center; /* Текст по центру */
+            max-width: 600px; /* Максимальная ширина */
+            width: 100%; /* Занимать доступную ширину до max-width */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 25px; /* Отступ снизу заголовка */
+            font-size: 1.8em; /* Размер заголовка */
+        }
+
+        blockquote {
+            font-size: 1.3em; /* Размер текста цитаты */
+            margin: 25px 0; /* Отступы сверху и снизу */
+            font-style: italic; /* Курсив */
+            color: #555; /* Цвет текста цитаты */
+            border-left: 5px solid #007bff; /* Синяя линия слева */
+            padding-left: 20px; /* Отступ слева от линии */
+            text-align: left; /* Выравнивание текста цитаты по левому краю */
+            min-height: 50px; /* Минимальная высота, чтобы блок не схлопывался */
+        }
+
+        #quote-author {
+            font-size: 1.1em; /* Размер текста автора */
+            color: #777; /* Цвет текста автора */
+            margin-top: 15px; /* Отступ сверху */
+            text-align: right; /* Выравнивание по правому краю */
+            font-weight: bold; /* Жирный шрифт */
+            min-height: 1.1em; /* Минимальная высота */
+        }
+
+        /* Добавляем тире перед автором, если он есть */
+        #quote-author:not(:empty)::before {
+            content: "— ";
+        }
+
+
+        button {
+            background-color: #007bff; /* Синий фон кнопки */
+            color: white; /* Белый текст кнопки */
+            border: none; /* Убрать границу */
+            padding: 12px 25px; /* Внутренние отступы кнопки */
+            font-size: 1em; /* Размер текста кнопки */
+            border-radius: 5px; /* Скругленные углы кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s ease, transform 0.1s ease; /* Плавный переход цвета и небольшой эффект нажатия */
+            margin-top: 25px; /* Отступ сверху */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Более темный синий при наведении */
+        }
+
+        button:active {
+            transform: scale(0.98); /* Небольшое уменьшение при нажатии */
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-container">
+        <h1>Случайная Цитата</h1>
+        <blockquote id="quote-text">
+            Нажмите кнопку ниже, чтобы получить цитату.
+        </blockquote>
+        <p id="quote-author">
+            </p>
+        <button id="new-quote-btn">Новая цитата</button>
+    </div>
+
+    <script>
+        // Находим элементы на странице по их ID
+        const quoteTextElement = document.getElementById('quote-text');
+        const quoteAuthorElement = document.getElementById('quote-author');
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+
+        // Массив с объектами цитат (можно легко добавлять новые)
+        const quotes = [
+            {
+                text: "Самый лучший способ предсказать будущее — это создать его.",
+                author: "Питер Друкер"
+            },
+            {
+                text: "Логика может привести Вас от пункта А к пункту Б, а воображение — куда угодно.",
+                author: "Альберт Эйнштейн"
+            },
+            {
+                text: "Единственный способ делать великие дела – любить то, что вы делаете.",
+                author: "Стив Джобс"
+            },
+            {
+                text: "Успех — это способность шагать от одной неудачи к другой, не теряя энтузиазма.",
+                author: "Уинстон Черчилль"
+            },
+            {
+                 text: "Через двадцать лет вы будете больше сожалеть о том, чего не сделали, чем о том, что вы сделали.",
+                 author: "Марк Твен"
+            },
+            {
+                 text: "Ваше время ограничено, не тратьте его, живя чужой жизнью.",
+                 author: "Стив Джобс"
+            },
+            {
+                 text: "Стремитесь не к успеху, а к ценностям, которые он дает​.",
+                 author: "Альберт Эйнштейн"
+            }
+            // Добавьте сюда больше цитат в таком же формате: { text: "...", author: "..." }
+        ];
+
+        // Функция для получения случайной цитаты из массива
+        function getRandomQuote() {
+            // Генерируем случайный индекс от 0 до (длина массива - 1)
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            // Возвращаем объект цитаты по этому индексу
+            return quotes[randomIndex];
+        }
+
+        // Функция для отображения цитаты на странице
+        function displayQuote() {
+            // Получаем случайную цитату
+            const quote = getRandomQuote();
+            // Устанавливаем текст цитаты в соответствующий HTML-элемент
+            quoteTextElement.textContent = quote.text;
+            // Устанавливаем автора цитаты в соответствующий HTML-элемент
+            quoteAuthorElement.textContent = quote.author;
+        }
+
+        // Добавляем обработчик события: при клике на кнопку (элемент с ID 'new-quote-btn')
+        // будет вызываться функция displayQuote
+        newQuoteBtn.addEventListener('click', displayQuote);
+
+        // Опционально: можно вызвать displayQuote() один раз при загрузке,
+        // чтобы сразу показать случайную цитату, а не стартовое сообщение.
+        // Для этого раскомментируйте строку ниже:
+        // displayQuote();
+
+    </script>
+</body>
+</html>
