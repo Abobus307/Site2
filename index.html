@@ -14,8 +14,8 @@
             color: #333;
         }
         .container {
-            width: 85%; /* Немного шире для контента */
-            max-width: 900px; /* Максимальная ширина */
+            width: 85%;
+            max-width: 900px;
             margin: auto;
             overflow: hidden;
             padding: 20px;
@@ -32,98 +32,92 @@
             border-bottom: #0779e4 3px solid;
             border-radius: 8px 8px 0 0;
         }
-        header h1 {
-            margin: 0;
-            padding: 0;
-        }
+        header h1 { margin: 0; padding: 0; }
         section {
             margin: 20px 0;
             padding: 20px;
-            background: #f9f9f9; /* Слегка другой фон для секций */
-            border: 1px solid #ddd; /* Добавим рамку */
+            background: #f9f9f9;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .script-section {
-             margin-bottom: 30px; /* Добавим отступ между описаниями скриптов */
-        }
+        .script-section { margin-bottom: 30px; }
         h2 {
             color: #0779e4;
             border-bottom: 2px solid #eee;
             padding-bottom: 5px;
         }
-         h3 {
-            color: #333;
-            margin-top: 15px;
-        }
-        a {
-            color: #0779e4;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .button {
+        h3 { color: #333; margin-top: 15px; }
+        a { color: #0779e4; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .button, button[type="submit"] { /* Стили для кнопок и кнопки формы */
             display: inline-block;
             background: #0779e4;
-            color: #fff !important; /* Важно для переопределения */
+            color: #fff !important;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
             font-size: 1em;
-            margin-top: 10px; /* Отступ сверху для кнопок */
-            margin-right: 10px; /* Отступ справа между кнопками */
+            margin-top: 10px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease; /* Плавный переход */
         }
-        .button:hover {
+        .button:hover, button[type="submit"]:hover {
             background: #0568b1;
-            text-decoration: none; /* Убираем подчеркивание для кнопок */
+            text-decoration: none;
         }
-        ul {
-            list-style: none;
-            padding-left: 10px; /* Небольшой отступ для списков */
+        ul { list-style: none; padding-left: 10px; }
+        ul li { padding-bottom: 8px; }
+        .disclaimer { background-color: #fff0f0; border: 1px solid #d9534f; color: #a94442; padding: 15px; margin-top: 15px; border-radius: 4px; }
+        .important-note { background-color: #fcf8e3; border: 1px solid #faebcc; color: #8a6d3b; padding: 15px; margin-top: 15px; border-radius: 4px; }
+        .purchase-block { margin-bottom: 15px; }
+
+        /* Стили для формы поддержки */
+        #support-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-        ul li {
-            padding-bottom: 8px; /* Увеличим отступ между пунктами */
-        }
-        .disclaimer {
-            background-color: #fff0f0; /* Светло-красный фон */
-            border: 1px solid #d9534f; /* Красная рамка */
-            color: #a94442; /* Темно-красный текст */
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        .important-note {
-            background-color: #fcf8e3; /* Светло-желтый фон */
-            border: 1px solid #faebcc; /* Желтая рамка */
-            color: #8a6d3b; /* Коричневый текст */
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        .purchase-block { /* Блок для каждой кнопки покупки */
-            margin-bottom: 15px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
+        #support-form input[type="email"],
+        #support-form input[type="text"],
+        #support-form textarea {
+            width: 100%;
             padding: 10px;
-            color: #777;
-            font-size: 0.9em;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Учитывает padding и border в ширине */
         }
+        #support-form textarea {
+            height: 120px;
+            resize: vertical; /* Позволяет изменять высоту */
+        }
+        #support-form button[type="submit"] {
+            width: auto; /* Кнопка не на всю ширину */
+        }
+        .form-status { /* Стиль для сообщений статуса формы */
+             margin-top: 15px;
+             padding: 10px;
+             border-radius: 4px;
+             display: none; /* Скрыто по умолчанию */
+        }
+        .form-status.success { background-color: #dff0d8; border: 1px solid #d6e9c6; color: #3c763d; }
+        .form-status.error { background-color: #f2dede; border: 1px solid #ebccd1; color: #a94442; }
+
+
+        footer { text-align: center; margin-top: 30px; padding: 10px; color: #777; font-size: 0.9em; }
     </style>
 </head>
 <body>
     <header>
         <h1>Скрипты для Roblox</h1>
-        </header>
+    </header>
 
     <div class="container">
 
         <section id="scripts">
             <h2>Наши Скрипты</h2>
-
             <div class="script-section">
                 <h3>Скрипт для Blue Lock: Rivals</h3>
                 <p><strong>📌 Функции скрипта:</strong></p>
@@ -135,297 +129,157 @@
                     <li>🔹 Буст FPS.</li>
                     <li>🔹 Анти-кик система.</li>
                 </ul>
-
-                <div class="important-note">
-                    <p><strong>⚠️ Важно:</strong> Скрипт создан для удобства и развлечения, а не для AFK-фарма! Используйте его с умом и не мешайте другим игрокам.</p>
-                </div>
-
-                <div class="disclaimer">
-                    <p><strong>‼️ Отказ от ответственности ‼️</strong></p>
-                    <p>⚠️ Использование скрипта осуществляется на ваш страх и риск. Я не несу ответственности за возможные блокировки аккаунта или другие последствия. Возврат средств не производится.</p>
-                    <p>🔹 <strong>Рекомендация:</strong> Используйте скрипт только на твинках, чтобы избежать потери основного аккаунта.</p>
-                    <p>❗ Скрипт создан для удобства игры, а не для AFK-фарма или вреда другим игрокам. Используйте его с умом!</p>
-                </div>
+                <div class="important-note"> <p><strong>⚠️ Важно:</strong> ...</p> </div>
+                <div class="disclaimer"> <p><strong>‼️ Отказ от ответственности ‼️</strong></p> ... </div>
             </div>
-
             <div class="script-section">
                 <h3>Скрипт для Piggy</h3>
                 <p><strong>✨ ДОСТУПНЫЕ ФУНКЦИИ:</strong></p>
                  <ul>
-                    <li>✅ Удобное GUI — интуитивное меню с фото предметов 🖼️</li>
-                    <li>✅ ESP Игроков — видите всех на карте в реальном времени! 👥</li>
-                    <li>⚠️ ESP Piggy — временно отключён* (активно дорабатываем)</li>
-                    <li>✅ Абсолютная защита — никаких лагов, банов и сливов данных! 🔒</li>
+                    <li>✅ Удобное GUI ... 🖼️</li>
+                    <li>✅ ESP Игроков ... 👥</li>
+                    <li>⚠️ ESP Piggy — временно отключён* ...</li>
+                    <li>✅ Абсолютная защита ... 🔒</li>
                  </ul>
-                  <p><em>*Мы работаем над восстановлением и улучшением функции ESP Piggy.</em></p>
-                   </div>
-
+                  <p><em>*Мы работаем над восстановлением...</em></p>
+                  </div>
         </section>
 
         <section id="get-key">
             <h2>Приобрести ключ</h2>
-            <p>
-                Для использования наших скриптов необходимо приобрести ключ активации. После оплаты на FunPay вы получите ключ и инструкции.
-            </p>
+            <p>Для использования наших скриптов необходимо приобрести ключ активации...</p>
             <p>Выберите нужный скрипт:</p>
-
             <div class="purchase-block">
                 <strong>Скрипт для Blue Lock: Rivals:</strong><br>
                 <a href="https://funpay.com/lots/offer?id=39886078" target="_blank" class="button">Купить ключ для Blue Lock</a>
             </div>
-
             <div class="purchase-block">
                  <strong>Скрипт для Piggy:</strong><br>
                  <a href="https://funpay.com/lots/offer?id=40572941" target="_blank" class="button">Купить ключ для Piggy</a>
             </div>
-
-            <p>
-                <small>Нажимая на кнопку, вы перейдете на сайт FunPay для совершения покупки.</small>
-            </p>
+            <p> <small>Нажимая на кнопку, вы перейдете на сайт FunPay...</small> </p>
         </section>
+
         <section id="support">
             <h2>Поддержка</h2>
             <p>
-                Если у вас возникли вопросы до или после покупки, проблемы с установкой, использованием скрипта или получением ключа,
-                вы можете связаться со службой поддержки:
+                Если у вас возникли вопросы (до или после покупки), проблемы или предложения, пожалуйста, заполните форму ниже.
+                Мы постараемся ответить вам в кратчайшие сроки.
             </p>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:[ВАШ EMAIL АДРЕС]">[ВАШ EMAIL АДРЕС]</a> (заменить)</li>
-                <li><strong>Discord:</strong> [Ссылка на ваш Discord сервер или ваш ник] (заменить)</li>
-                <li><strong>Telegram:</strong> [Ссылка на ваш Telegram канал или ваш контакт] (заменить)</li>
-                </ul>
-            <p>
-                Мы постараемся помочь вам в кратчайшие сроки.
-            </p>
-        </section>
 
+            <form id="support-form">
+                <div>
+                    <label for="email">Ваш Email (для ответа):*</label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                </div>
+                <div>
+                    <label for="discord">Ваш Discord ник (если есть):</label>
+                    <input type="text" id="discord" name="discord" placeholder="username#1234">
+                </div>
+                <div>
+                    <label for="telegram">Ваш Telegram ник (если есть):</label>
+                    <input type="text" id="telegram" name="telegram" placeholder="@username">
+                </div>
+                 <div>
+                    <label for="message">Ваш вопрос или сообщение:*</label>
+                    <textarea id="message" name="message" required placeholder="Опишите ваш вопрос или проблему..."></textarea>
+                </div>
+                <button type="submit">Отправить сообщение</button>
+            </form>
+            <div id="form-status" class="form-status"></div>
+        </section>
         <section id="links">
             <h2>Полезные ссылки</h2>
-            <p>Здесь вы можете разместить дополнительные ссылки (на видео-инструкции, сообщество, новости и т.д.):</p>
+            <p>Здесь вы можете разместить дополнительные ссылки...</p>
             <ul>
                 <li><a href="#">[Название ссылки 1]</a> (заменить)</li>
                 <li><a href="#">[Название ссылки 2]</a> (заменить)</li>
-                </ul>
+            </ul>
         </section>
     </div>
 
     <footer>
          <p>&copy; 2025 [Ваше имя или название проекта]. Скрипты для Roblox. Все права защищены.</p>
     </footer>
-</body>
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Скрипты для Roblox - Поддержка и информация</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 85%; /* Немного шире для контента */
-            max-width: 900px; /* Максимальная ширина */
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-top: 30px;
-            border-radius: 8px;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-            border-bottom: #0779e4 3px solid;
-            border-radius: 8px 8px 0 0;
-        }
-        header h1 {
-            margin: 0;
-            padding: 0;
-        }
-        section {
-            margin: 20px 0;
-            padding: 20px;
-            background: #f9f9f9; /* Слегка другой фон для секций */
-            border: 1px solid #ddd; /* Добавим рамку */
-            border-radius: 5px;
-        }
-        .script-section {
-             margin-bottom: 30px; /* Добавим отступ между описаниями скриптов */
-        }
-        h2 {
-            color: #0779e4;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-        }
-         h3 {
-            color: #333;
-            margin-top: 15px;
-        }
-        a {
-            color: #0779e4;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .button {
-            display: inline-block;
-            background: #0779e4;
-            color: #fff !important; /* Важно для переопределения */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 1em;
-            margin-top: 10px; /* Отступ сверху для кнопок */
-            margin-right: 10px; /* Отступ справа между кнопками */
-        }
-        .button:hover {
-            background: #0568b1;
-            text-decoration: none; /* Убираем подчеркивание для кнопок */
-        }
-        ul {
-            list-style: none;
-            padding-left: 10px; /* Небольшой отступ для списков */
-        }
-        ul li {
-            padding-bottom: 8px; /* Увеличим отступ между пунктами */
-        }
-        .disclaimer {
-            background-color: #fff0f0; /* Светло-красный фон */
-            border: 1px solid #d9534f; /* Красная рамка */
-            color: #a94442; /* Темно-красный текст */
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        .important-note {
-            background-color: #fcf8e3; /* Светло-желтый фон */
-            border: 1px solid #faebcc; /* Желтая рамка */
-            color: #8a6d3b; /* Коричневый текст */
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        .purchase-block { /* Блок для каждой кнопки покупки */
-            margin-bottom: 15px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 10px;
-            color: #777;
-            font-size: 0.9em;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Скрипты для Roblox</h1>
-        </header>
 
-    <div class="container">
+    <script>
+        const form = document.getElementById('support-form');
+        const statusDiv = document.getElementById('form-status');
+        // ПРЕДУПРЕЖДЕНИЕ: Хранение URL вебхука прямо в коде небезопасно.
+        // В идеале это должно обрабатываться на сервере.
+        // Но для простого HTML/JS сайта это единственный способ.
+        const webhookUrl = 'https://discord.com/api/webhooks/1336748138291007649/ecAVxkffAqxuHkza0cILj7i9wAqAZTX9FDtoyHl1UtO_uWQIDW6iHzMpmCLXHedJSIqt';
 
-        <section id="scripts">
-            <h2>Наши Скрипты</h2>
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Предотвращаем стандартную отправку формы
 
-            <div class="script-section">
-                <h3>Скрипт для Blue Lock: Rivals</h3>
-                <p><strong>📌 Функции скрипта:</strong></p>
-                <ul>
-                    <li>🔹 Автоматический подбор мяча на расстоянии.</li>
-                    <li>🔹 Телепорт на небольшие дистанции в сторону взгляда (с ползунком).</li>
-                    <li>🔹 Увеличенный хитбокс мяча – идеален для игры на воротах.</li>
-                    <li>🔹 Контроль направление мяча с настраиваемой скоростью.</li>
-                    <li>🔹 Буст FPS.</li>
-                    <li>🔹 Анти-кик система.</li>
-                </ul>
+            // Блокируем кнопку на время отправки
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Отправка...';
+            statusDiv.style.display = 'none'; // Скрываем предыдущий статус
 
-                <div class="important-note">
-                    <p><strong>⚠️ Важно:</strong> Скрипт создан для удобства и развлечения, а не для AFK-фарма! Используйте его с умом и не мешайте другим игрокам.</p>
-                </div>
+            // Получаем данные из формы
+            const email = document.getElementById('email').value;
+            const discordNick = document.getElementById('discord').value || 'Не указан'; // Если поле пустое
+            const telegramNick = document.getElementById('telegram').value || 'Не указан'; // Если поле пустое
+            const message = document.getElementById('message').value;
 
-                <div class="disclaimer">
-                    <p><strong>‼️ Отказ от ответственности ‼️</strong></p>
-                    <p>⚠️ Использование скрипта осуществляется на ваш страх и риск. Я не несу ответственности за возможные блокировки аккаунта или другие последствия. Возврат средств не производится.</p>
-                    <p>🔹 <strong>Рекомендация:</strong> Используйте скрипт только на твинках, чтобы избежать потери основного аккаунта.</p>
-                    <p>❗ Скрипт создан для удобства игры, а не для AFK-фарма или вреда другим игрокам. Используйте его с умом!</p>
-                </div>
-            </div>
+            // Формируем полезную нагрузку для Discord вебхука (используем Embed)
+            const payload = {
+                username: "Обращение с Сайта", // Имя бота в Discord
+                // avatar_url: "URL_вашего_аватара_если_есть", // URL аватара бота
+                embeds: [{
+                    title: "Новое обращение в поддержку",
+                    color: 3447003, // Синий цвет (десятичное представление)
+                    fields: [
+                        { name: "Email для ответа", value: email, inline: false }, // Email всегда не inline для акцента
+                        { name: "Discord", value: discordNick, inline: true },
+                        { name: "Telegram", value: telegramNick, inline: true },
+                        { name: "Сообщение", value: message, inline: false } // Сообщение на всю ширину
+                    ],
+                    footer: {
+                        text: "ВАЖНО: Отвечать нужно вручную на указанный Email!"
+                    },
+                    timestamp: new Date().toISOString() // Текущее время
+                }]
+            };
 
-            <div class="script-section">
-                <h3>Скрипт для Piggy</h3>
-                <p><strong>✨ ДОСТУПНЫЕ ФУНКЦИИ:</strong></p>
-                 <ul>
-                    <li>✅ Удобное GUI — интуитивное меню с фото предметов 🖼️</li>
-                    <li>✅ ESP Игроков — видите всех на карте в реальном времени! 👥</li>
-                    <li>⚠️ ESP Piggy — временно отключён* (активно дорабатываем)</li>
-                    <li>✅ Абсолютная защита — никаких лагов, банов и сливов данных! 🔒</li>
-                 </ul>
-                  <p><em>*Мы работаем над восстановлением и улучшением функции ESP Piggy.</em></p>
-                   </div>
+            try {
+                // Отправляем данные на вебхук
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
 
-        </section>
-
-        <section id="get-key">
-            <h2>Приобрести ключ</h2>
-            <p>
-                Для использования наших скриптов необходимо приобрести ключ активации. После оплаты на FunPay вы получите ключ и инструкции.
-            </p>
-            <p>Выберите нужный скрипт:</p>
-
-            <div class="purchase-block">
-                <strong>Скрипт для Blue Lock: Rivals:</strong><br>
-                <a href="https://funpay.com/lots/offer?id=39886078" target="_blank" class="button">Купить ключ для Blue Lock</a>
-            </div>
-
-            <div class="purchase-block">
-                 <strong>Скрипт для Piggy:</strong><br>
-                 <a href="https://funpay.com/lots/offer?id=40572941" target="_blank" class="button">Купить ключ для Piggy</a>
-            </div>
-
-            <p>
-                <small>Нажимая на кнопку, вы перейдете на сайт FunPay для совершения покупки.</small>
-            </p>
-        </section>
-        <section id="support">
-            <h2>Поддержка</h2>
-            <p>
-                Если у вас возникли вопросы до или после покупки, проблемы с установкой, использованием скрипта или получением ключа,
-                вы можете связаться со службой поддержки:
-            </p>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:[ВАШ EMAIL АДРЕС]">[ВАШ EMAIL АДРЕС]</a> (заменить)</li>
-                <li><strong>Discord:</strong> [Ссылка на ваш Discord сервер или ваш ник] (заменить)</li>
-                <li><strong>Telegram:</strong> [Ссылка на ваш Telegram канал или ваш контакт] (заменить)</li>
-                </ul>
-            <p>
-                Мы постараемся помочь вам в кратчайшие сроки.
-            </p>
-        </section>
-
-        <section id="links">
-            <h2>Полезные ссылки</h2>
-            <p>Здесь вы можете разместить дополнительные ссылки (на видео-инструкции, сообщество, новости и т.д.):</p>
-            <ul>
-                <li><a href="#">[Название ссылки 1]</a> (заменить)</li>
-                <li><a href="#">[Название ссылки 2]</a> (заменить)</li>
-                </ul>
-        </section>
-    </div>
-
-    <footer>
-         <p>&copy; 2025 [Ваше имя или название проекта]. Скрипты для Roblox. Все права защищены.</p>
-    </footer>
-</body>
+                if (response.ok) {
+                    // Успешно отправлено
+                    statusDiv.textContent = 'Ваше сообщение успешно отправлено! Мы скоро с вами свяжемся.';
+                    statusDiv.className = 'form-status success';
+                    statusDiv.style.display = 'block';
+                    form.reset(); // Очищаем форму
+                } else {
+                    // Ошибка при отправке
+                    console.error('Discord Webhook Error:', response.status, await response.text());
+                    statusDiv.textContent = `Ошибка отправки (${response.status}). Пожалуйста, попробуйте позже или свяжитесь через другие каналы.`;
+                    statusDiv.className = 'form-status error';
+                    statusDiv.style.display = 'block';
+                }
+            } catch (error) {
+                // Ошибка сети или другая ошибка JS
+                console.error('Form Submission Error:', error);
+                statusDiv.textContent = 'Произошла ошибка при отправке формы. Проверьте подключение к интернету.';
+                statusDiv.className = 'form-status error';
+                statusDiv.style.display = 'block';
+            } finally {
+                 // Разблокируем кнопку в любом случае
+                 submitButton.disabled = false;
+                 submitButton.textContent = 'Отправить сообщение';
+            }
+        });
+    </script>
+    </body>
 </html>
