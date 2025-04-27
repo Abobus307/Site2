@@ -4,358 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Скрипты для Roblox - Поддержка и информация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #1e88e5;
+            --primary-dark: #1565c0;
+            --bg-light: #f9fafe;
+            --bg-dark: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --border-light: #e0e0e0;
+            --radius: 0.5rem;
+            --transition: 0.3s ease;
+            --header-height: 80px;
+        }
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 85%;
-            max-width: 900px;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-top: 30px;
-            border-radius: 8px;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-            border-bottom: #0779e4 3px solid;
-            border-radius: 8px 8px 0 0;
-        }
-        header h1 {
-            margin: 0;
-            padding: 0;
-        }
-        section {
-            margin: 20px 0;
-            padding: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .script-section {
-             margin-bottom: 30px;
-        }
-        h2 {
-            color: #0779e4;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-        }
-         h3 {
-            color: #333;
-            margin-top: 15px;
-        }
-        a {
-            color: #0779e4;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .button, button[type="submit"] {
-            display: inline-block;
-            background: #0779e4;
-            color: #fff !important;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 1em;
-            margin-top: 10px;
-            margin-right: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover, button[type="submit"]:hover {
-            background: #0568b1;
-            text-decoration: none;
-        }
-        ul {
-            list-style: none;
-            padding-left: 10px;
-        }
-        ul li {
-            padding-bottom: 8px;
-            white-space: normal;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-        }
-        .disclaimer {
-            background-color: #fff0f0;
-            border: 1px solid #d9534f;
-            color: #a94442;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        .important-note {
-            background-color: #fcf8e3;
-            border: 1px solid #faebcc;
-            color: #8a6d3b;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        .purchase-block {
-            margin-bottom: 15px;
-        }
-        details {
-            margin-top: 10px;
-        }
-        details > summary {
-            cursor: pointer;
-            font-weight: bold;
-            white-space: normal;
-            overflow: visible;
-            text-overflow: clip;
-            list-style: none;
-        }
-        details > p {
-             margin-top: 10px;
-             margin-left: 15px;
-        }
-        #support-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        #support-form input[type="email"],
-        #support-form input[type="text"],
-        #support-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
             box-sizing: border-box;
         }
-        #support-form textarea {
-            height: 120px;
-            resize: vertical;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
         }
-        #support-form button[type="submit"] {
-            width: auto;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
         }
-        .form-status {
-             margin-top: 15px;
-             padding: 10px;
-             border-radius: 4px;
-             display: none;
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            height: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .form-status.success { background-color: #dff0d8; border: 1px solid #d6e9c6; color: #3c763d; }
-        .form-status.error { background-color: #f2dede; border: 1px solid #ebccd1; color: #a94442; }
-        footer {
+        header h1 {
+            font-weight: 600;
+            font-size: 1.75rem;
+        }
+        nav {
+            margin-top: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 0.75rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        nav a:hover {
+            color: var(--bg-light);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            scroll-margin-top: var(--header-height);
+        }
+        section h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+        .scripts-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+        }
+        @media(min-width:768px) {
+            .scripts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .script-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .script-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .script-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .script-card h3 .fas {
+            margin-right: 0.5rem;
+            color: var(--primary-dark);
+        }
+        .script-card ul {
+            list-style: disc inside;
+            margin-top: 0.5rem;
+        }
+        .note {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+        }
+        .note.warning {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        .note.danger {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            transition: background var(--transition);
+            margin: 0.5rem 0.5rem 0 0;
+        }
+        #get-key .scripts-grid .script-card .btn {
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+        .footer {
             text-align: center;
-            margin-top: 30px;
-            padding: 10px;
-            color: #777;
-            font-size: 0.9em;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Скрипты для Roblox</h1>
-        </header>
-
+        <nav>
+            <a href="#scripts">Скрипты</a>
+            <a href="#get-key">Купить ключ</a>
+            <a href="#support">Поддержка</a>
+            <a href="#links">Ссылки</a>
+        </nav>
+    </header>
     <div class="container">
-
         <section id="scripts">
             <h2>Наши Скрипты</h2>
-
-            <div class="script-section">
-                <h3>Скрипт для Blue Lock: Rivals</h3>
-                <p><strong>📌 Функции скрипта:</strong></p>
-                <ul>
-                    <li>🔹 Автоматический подбор мяча на расстоянии. Эта функция позволяет вам легко собирать мячи, даже если они находятся не совсем рядом с вами, что очень удобно в динамичной игре.</li>
-                    <li>🔹 Телепорт на небольшие дистанции в сторону взгляда (с ползунком). Позволяет быстро перемещаться по полю, уклоняться от противников или занимать выгодную позицию.</li>
-                    <li>🔹 Увеличенный хитбокс мяча – идеален для игры на воротах. Это значительно упрощает блокировку ударов соперника, когда вы стоите на воротах.</li>
-                    <li>🔹 Контроль направление мяча с настраиваемой скоростью. Вы можете точно задать, куда полетит мяч после вашего удара.</li>
-                    <li>🔹 Буст FPS. Оптимизирует графику для повышения производительности и плавности игры на слабых ПК.</li>
-                    <li>🔹 Анти-кик система. Предотвращает автоматический кик с сервера за бездействие (AFK).</li>
-                </ul>
-
-                <div class="important-note">
-                   <details>
-                        <summary>⚠️ Важно...</summary>
-                        <p>Скрипт создан для удобства и развлечения, а не для AFK-фарма! Используйте его с умом и не мешайте другим игрокам.</p>
-                    </details>
+            <div class="scripts-grid">
+                <div class="script-card">
+                    <h3><i class="fas fa-bolt"></i> Blue Lock: Rivals</h3>
+                    <ul>
+                        <li>Автоматический подбор мяча на расстоянии</li>
+                        <li>Телепорт с настраиваемым ползунком</li>
+                        <li>Увеличенный хитбокс мяча</li>
+                        <li>Контроль направления и скорости мяча</li>
+                        <li>Буст FPS для слабых ПК</li>
+                        <li>Анти-AFK система</li>
+                    </ul>
+                    <div class="note warning"><strong>Важно:</strong> Используйте скрипт разумно и ответственно.</div>
+                    <div class="note danger"><strong>Отказ от ответственности:</strong> На ваш страх и риск. Рекомендуем использовать на твинках.</div>
                 </div>
-                <div class="disclaimer">
-                     <details>
-                        <summary>‼️ Отказ от ответственности...</summary>
-                        <p>⚠️ Использование скрипта осуществляется на ваш страх и риск. Я не несу ответственности за возможные блокировки аккаунта или другие последствия. Возврат средств не производится.</p>
-                        <p>🔹 <strong>Рекомендация:</strong> Используйте скрипт только на твинках, чтобы избежать потери основного аккаунта.</p>
-                        <p>❗ Скрипт создан для удобства игры, а не для AFK-фарма или вреда другим игрокам. Используйте его с умом!</p>
-                    </details>
+                <div class="script-card">
+                    <h3><i class="fas fa-piggy-bank"></i> Piggy</h3>
+                    <ul>
+                        <li>Интуитивное GUI с фото предметов</li>
+                        <li>ESP игроков для отслеживания в реальном времени</li>
+                        <li>ABSOLUTE защита: без лагов и банов</li>
+                        <li>ESP Piggy — временно отключен (в разработке)</li>
+                    </ul>
+                    <div class="note warning"><strong>Статус:</strong> Функция ESP Piggy скоро вернется.</div>
                 </div>
             </div>
-
-            <div class="script-section">
-                <h3>Скрипт для Piggy</h3>
-                <p><strong>✨ ДОСТУПНЫЕ ФУНКЦИИ:</strong></p>
-                 <ul>
-                    <li>✅ Удобное GUI — интуитивное меню с фото предметов 🖼️. Легко найти нужный предмет и понять, что он делает, благодаря наглядным иконкам.</li>
-                    <li>✅ ESP Игроков — видите всех на карте в реальном времени! 👥 Вы всегда будете знать, где находятся другие выжившие или сама Пигги.</li>
-                    <li>⚠️ ESP Piggy — временно отключён* (активно дорабатываем). Мы работаем над этой функцией и скоро вернем ее.</li>
-                    <li>✅ Абсолютная защита — никаких лагов, банов и сливов данных! 🔒 Мы заботимся о безопасности вашего аккаунта и стабильности работы скрипта.</li>
-                 </ul>
-                  <p><em>*Мы работаем над восстановлением и улучшением функции ESP Piggy.</em></p>
-                  </div>
-
         </section>
-
         <section id="get-key">
             <h2>Приобрести ключ</h2>
-            <p>
-                Для использования наших скриптов необходимо приобрести ключ активации. После оплаты на FunPay вы получите ключ и инструкции.
-            </p>
-            <p>Выберите нужный скрипт:</p>
-
-            <div class="purchase-block">
-                <strong>Скрипт для Blue Lock: Rivals:</strong><br>
-                <a href="https://funpay.com/lots/offer?id=39886078" target="_blank" class="button">Купить ключ для Blue Lock</a>
+            <p>Выберите нужный скрипт и перейдите на FunPay для оплаты.</p>
+            <div class="scripts-grid">
+                <div class="script-card">
+                    <strong>Blue Lock: Rivals</strong>
+                    <a href="https://funpay.com/lots/offer?id=39886078" target="_blank" class="btn">Купить ключ</a>
+                </div>
+                <div class="script-card">
+                    <strong>Piggy</strong>
+                    <a href="https://funpay.com/lots/offer?id=40572941" target="_blank" class="btn">Купить ключ</a>
+                </div>
             </div>
-
-            <div class="purchase-block">
-                 <strong>Скрипт для Piggy:</strong><br>
-                 <a href="https://funpay.com/lots/offer?id=40572941" target="_blank" class="button">Купить ключ для Piggy</a>
-            </div>
-
-            <p>
-                <small>Нажимая на кнопку, вы перейдете на сайт FunPay для совершения покупки.</small>
-            </p>
         </section>
-
         <section id="support">
             <h2>Поддержка</h2>
-            <p>
-                Если у вас возникли вопросы (до или после покупки), проблемы или предложения, пожалуйста, заполните форму ниже.
-                Мы постараемся ответить вам в кратчайшие сроки.
-            </p>
-
-            <form id="support-form">
-                <div>
-                    <label for="email">Ваш Email (для ответа):*</label>
-                    <input type="email" id="email" name="email" required placeholder="example@mail.com">
-                </div>
-                <div>
-                    <label for="discord">Ваш Discord ник (если есть):</label>
-                    <input type="text" id="discord" name="discord" placeholder="username#1234">
-                </div>
-                <div>
-                    <label for="telegram">Ваш Telegram ник (если есть):</label>
-                    <input type="text" id="telegram" name="telegram" placeholder="@username">
-                </div>
-                 <div>
-                    <label for="message">Ваш вопрос или сообщение:*</label>
-                    <textarea id="message" name="message" required placeholder="Опишите ваш вопрос или проблему..."></textarea>
-                </div>
-                <button type="submit">Отправить сообщение</button>
-            </form>
-            <div id="form-status" class="form-status"></div>
+            <p>Для связи с поддержкой присоединяйтесь к нашему Discord серверу:</p>
+            <a href="https://discord.gg/R7YbX48GcE" target="_blank" class="btn btn-small"><i class="fab fa-discord"></i> Наш Discord сервер</a>
         </section>
-
         <section id="links">
             <h2>Полезные ссылки</h2>
-            <p>Здесь вы можете найти наш Discord сервер и другую информацию:</p>
-            <ul>
-                <li><a href="https://discord.gg/R7YbX48GcE" target="_blank">Наш Discord сервер</a></li>
-                <li><a href="https://abobus307.github.io/Site/" target="_blank">Мое Bio</a></li>
-             </ul>
+            <div class="links-buttons">
+                <a href="https://funpay.com/users/11718542/" target="_blank" class="btn btn-small"><i class="fas fa-shopping-cart"></i> Мой FunPay</a>
+                <a href="https://abobus307.github.io/Site/" target="_blank" class="btn btn-small"><i class="fas fa-user"></i> Автор сайта</a>
+            </div>
         </section>
     </div>
-
-    <footer>
-         <p>&copy; 2025 Abobus307. Скрипты для Roblox. Все права защищены.</p>
-         </footer>
-
-    <script>
-        const form = document.getElementById('support-form');
-        const statusDiv = document.getElementById('form-status');
-        const emailInput = document.getElementById('email');
-        const webhookUrl = 'https://discord.com/api/webhooks/1336748138291007649/ecAVxkffAqxuHkza0cILj7i9wAqAZTX9FDtoyHl1UtO_uWQIDW6iHzMpmCLXHedJSIqt';
-        const stricterEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            statusDiv.style.display = 'none';
-
-            const email = emailInput.value;
-            const discordNick = document.getElementById('discord').value || 'Не указан';
-            const telegramNick = document.getElementById('telegram').value || 'Не указан';
-            const message = document.getElementById('message').value;
-
-            if (!stricterEmailRegex.test(email)) {
-                statusDiv.textContent = 'Пожалуйста, введите корректный Email адрес (проверьте формат, например, user@example.com).';
-                statusDiv.className = 'form-status error';
-                statusDiv.style.display = 'block';
-                emailInput.focus();
-                return;
-            }
-
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Отправка...';
-
-            const payload = {
-                username: "Обращение с Сайта",
-                embeds: [{
-                    title: "Новое обращение в поддержку",
-                    color: 3447003,
-                    fields: [
-                        { name: "Email для ответа", value: email, inline: false },
-                        { name: "Discord", value: discordNick, inline: true },
-                        { name: "Telegram", value: telegramNick, inline: true },
-                        { name: "Сообщение", value: message, inline: false }
-                    ],
-                    footer: {
-                        text: "ВАЖНО: Отвечать нужно вручную на указанный Email!"
-                    },
-                    timestamp: new Date().toISOString()
-                }]
-            };
-
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload),
-                });
-
-                if (response.ok) {
-                    statusDiv.textContent = 'Ваше сообщение успешно отправлено! Мы скоро с вами свяжемся.';
-                    statusDiv.className = 'form-status success';
-                    statusDiv.style.display = 'block';
-                    form.reset();
-                } else {
-                    console.error('Discord Webhook Error:', response.status, await response.text());
-                    statusDiv.textContent = `Ошибка отправки (${response.status}). Пожалуйста, попробуйте позже или свяжитесь через другие каналы.`;
-                    statusDiv.className = 'form-status error';
-                    statusDiv.style.display = 'block';
-                }
-            } catch (error) {
-                console.error('Form Submission Error:', error);
-                statusDiv.textContent = 'Произошла ошибка при отправке формы. Проверьте подключение к интернету.';
-                statusDiv.className = 'form-status error';
-                statusDiv.style.display = 'block';
-            } finally {
-                 submitButton.disabled = false;
-                 submitButton.textContent = 'Отправить сообщение';
-            }
-        });
-    </script>
-    </body>
+    <footer class="footer">&copy; 2025 Abobus307. Все права защищены.</footer>
+</body>
 </html>
